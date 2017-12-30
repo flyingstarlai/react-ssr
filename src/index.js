@@ -1,18 +1,17 @@
 /**
  * Created by flyin on 2017/11/14.
  */
-const express = require('express');
-const React = require('react');
-const renderToString = require('react-dom/server').renderToString;
-const Home = require('./client/components/Home').default;
+import express from 'express';
+import React from 'react';
+import renderer from './helpers/renderer'
 
 const app = express();
+app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    const content = renderToString(<Home/>);
-    res.send(content);
+app.get('*', (req, res) => {
+    res.send(renderer(req));
 });
 
 app.listen(3000, () => {
-
+    console.log("Server run on port 3000");
 });
