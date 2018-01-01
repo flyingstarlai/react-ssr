@@ -5,11 +5,13 @@ import React from 'react';
 
 const Home = () => {
   return (
-      <div>
-        <div>Hello I am Component</div>
+      <div className="center-align" style={{marginTop: 200}}>
+        <h3>Welcome to Our Guild</h3>
         <button onClick={() => console.log('Hi fuck')}>Press Me!</button>
       </div>
   );
 };
 
-export default Home;
+export default {
+    component: Home
+}
